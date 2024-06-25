@@ -1,0 +1,114 @@
+﻿<Window x:Class="WpfApp2.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp2"
+        mc:Ignorable="d"
+        Title="Window1" Height="516" Width="833">
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="/Fonts/#Montserrat"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="#333"/>
+            <Setter Property="Margin" Value="0,10,0,0"/>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="FontFamily" Value="/Fonts/#Montserrat"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Margin" Value="0,10,0,0"/>
+            <Setter Property="Padding" Value="10 0 0 0"/>
+            <Setter Property="Background" Value="#fff"/>
+            <Setter Property="BorderBrush" Value="#ccc"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect Color="#888" BlurRadius="5" Direction="270" ShadowDepth="1"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="PasswordBox">
+            <Setter Property="FontFamily" Value="/Fonts/#Montserrat"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Margin" Value="0,10,0,0"/>
+            <Setter Property="Padding" Value="10 0 0 0"/>
+            <Setter Property="Background" Value="#fff"/>
+            <Setter Property="BorderBrush" Value="#ccc"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect Color="#888" BlurRadius="5" Direction="270" ShadowDepth="1"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="FontFamily" Value="/Fonts/#Montserrat"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Padding" Value="10 0 0 0"/>
+            <Setter Property="Background" Value="#0078D7"/>
+            <Setter Property="Foreground" Value="#fff"/>
+            <Setter Property="BorderBrush" Value="#0078D7"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect Color="#888" BlurRadius="5" Direction="270" ShadowDepth="1"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="1"
+                                CornerRadius="20">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Авторизация" FontSize="32" FontWeight="Bold" HorizontalAlignment="Center" Margin="10" FontFamily="/Fonts/#Montserrat"/>
+
+        <TextBlock Text="Delta Foxtrot" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,58,0,316" FontFamily="/Fonts/#Montserrat" Width="370" Grid.RowSpan="2"/>
+
+        <Grid Grid.Row="2" Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="Логин:" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0"/>
+            <TextBox Name="LoginTextBox" Tag="Логин" Grid.Row="0" Grid.Column="1" Height="25" Margin="0,10,0,0"/>
+
+            <TextBlock Text="Пароль:" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0"/>
+            <PasswordBox Name="PasswordBox" Grid.Row="1" Grid.Column="1" Height="25"/>
+            <Button Content="👁" Width="23" Height="23" Grid.Row="1" Grid.Column="2" Click="Button_Click" Margin="10,15,10,5"/>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Margin="20,30,20,0">
+                <Button Name="ClearButtonAuth" Content="Очистить" Width="120" Click="ClearButton_Click" Background="#008080"/>
+                <Button Name="LoginButton" Content="Войти" Width="180" Click="LoginButton_Click" Background="#008080"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
